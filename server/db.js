@@ -210,6 +210,16 @@ const getFromDatabaseById = (modelType, id) => {
   });
 }
 
+const getWorkByMinionId = (modelType, id) => {
+  const model = findDataArrayByName(modelType);
+  if (model === null) {
+    return null;
+  }
+  return model.data.find((element) => {
+    return element.minionId === id;
+  });
+}
+
 const addToDatabase = (modelType, instance) => {
   const model = findDataArrayByName(modelType);
   if (model === null) {
@@ -271,4 +281,5 @@ module.exports = {
   updateInstanceInDatabase,
   deleteFromDatabasebyId,
   deleteAllFromDatabase,
+  getWorkByMinionId
 };
